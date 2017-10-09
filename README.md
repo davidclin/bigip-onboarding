@@ -1,13 +1,11 @@
-## Last updated: 10/9/2017
+## Last updated: 
 
 
-# bigip-onboarding
-Ansible role to automate onboarding configuration on a BIG-IP. The role will configure the following
-* BIG-IP hostname
-* BIG-IP SSH Banner text
-* NTP servers
-* DNS servers
-* Configure VLAN's and Self-IPs
+# title goes here 
+Ansible role to automate provisioning tasks on a XYZ. The role will configure the following
+* task one
+* task two
+* other tasks
 
 ## Requirements
 * This role requires Ansible 2.4
@@ -19,14 +17,15 @@ Ansible role to automate onboarding configuration on a BIG-IP. The role will con
 
 ## Role Variables
 The variables that can be passed to this role and a brief description about them are as follows.
+Variables are defined in the main.yml file under the default role directory.
 
 ```
-username: admin                                     //BIG-IP username
-password: admin                                     //BIG-IP password
+username: admin                                     //username
+password: admin                                     //password
 
-banner_text: "--Welcome to Onboarding BIGIP--"      //Banner when user SSH's into the BIG-IP
+banner_text: "--Welcome!--"                         //Banner when user SSH's into device 
 
-hostname: 'ansibleManaged-bigip.local'              //BIG-IP hostname
+hostname: 'ansibleManaged.local'                    //BIG-IP hostname
 
 ntp_servers:                                        //NTP servers configured on BIG-IP
  - '172.27.1.1'
@@ -50,26 +49,15 @@ vlan_information:                                   //VLAN configured on BIG-IP
    tag: '11'                                                   tagged to interface 1.2
    interface: '1.2'
 
-selfip_information:                                 //Self-IP configured on the BIG-IP
- - name: 'External-SelfIP'                                        
-   address: '10.168.68.5'                                         
-   netmask: '255.255.255.0'
-   vlan: 'External'
-   allow_service: 'default'
- - name: 'Internal-SelfIP'
-   address: '192.168.68.5'
-   netmask: '255.255.255.0'
-   vlan: 'Internal'
-   allow_service: 'default'
 
 ```
 
 ## Example Playbook
 ```
-- hosts: bigips
+- hosts: web_cluster 
   gather_facts: false
   roles:
-  - { role: f5devcentral.bigip-onboarding }
+  - { role: bigip-provisioning }
 
 ```
 
