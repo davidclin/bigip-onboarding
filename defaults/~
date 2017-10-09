@@ -1,10 +1,10 @@
 ---
 username: admin
-password: "!Cisco123" 
+password: !Cisco123 
 
 banner_text: "--------Welcome to Onboarding BIGIP----------"
 
-hostname: 'f5-bigip-david-onecloudinc.com'
+hostname: 'ansibleManaged-bigip.local'
 
 ntp_servers:
  - '172.27.1.1'
@@ -39,3 +39,7 @@ selfip_information:
    netmask: '255.255.255.0'
    vlan: 'Internal'
    allow_service: 'default'
+
+module_provisioning:
+ - name: 'asm'
+   level: 'nominal'
