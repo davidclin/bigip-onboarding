@@ -1,10 +1,12 @@
+## Last updated: 10/9/2017
+
+
 # bigip-onbording
 Ansible role to automate onboarding configuration on a BIG-IP. The role will configure the following
 * BIG-IP hostname
 * BIG-IP SSH Banner text
 * NTP servers
 * DNS servers
-* Provision the modules (ASM/AFM etc) on the BIG-IP
 * Configure VLAN's and Self-IPs
 
 ## Requirements
@@ -60,9 +62,6 @@ selfip_information:                                 //Self-IP configured on the 
    vlan: 'Internal'
    allow_service: 'default'
 
-module_provisioning:                                 //Module provisioning on BIG-IP. 
- - name: 'asm'                                       //ASM module is enabled on the BIG-IP
-   level: 'nominal'
 ```
 
 ## Example Playbook
