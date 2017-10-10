@@ -15,11 +15,12 @@
 
 # bigip-onboarding
 Ansible role to automate onboarding configuration on a BIG-IP. The role will configure the following
-* BIG-IP hostname
-* BIG-IP SSH Banner text
-* NTP servers
-* DNS servers
-* Configure VLAN's and Self-IPs
+* BIG-IP hostname (tags: hostname)
+* BIG-IP SSH Banner text (tags: banner)
+* NTP servers (tags: ntp)
+* DNS servers (tags: dns)
+* VLAN's (tags: vlans)
+* Self-IPs (tags: selfips)
 
 ## Requirements
 * This role requires Ansible 2.4
@@ -33,8 +34,8 @@ Ansible role to automate onboarding configuration on a BIG-IP. The role will con
 The variables that can be passed to this role and a brief description about them are as follows.
 
 ```
-username: admin                                     //BIG-IP username
-password: admin                                     //BIG-IP password
+username: <username>                                 //BIG-IP username
+password: <password>                                 //BIG-IP password
 
 banner_text: "--Welcome to Onboarding BIGIP--"      //Banner when user SSH's into the BIG-IP
 
