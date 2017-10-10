@@ -21,7 +21,7 @@ Ansible role to automate onboarding configuration on a BIG-IP. The role will con
 * DNS servers (tags: dns)
 * VLAN's (tags: vlans)
 * Self-IPs (tags: selfips)
-* Traffic Management Shell (TMSH) commands (tags: commands)
+* Traffic Management Shell (TMSH) show commands (tags: commands)
 * Save running configuration (tags: save)
 
 ## Requirements
