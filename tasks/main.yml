@@ -75,3 +75,27 @@
   delegate_to: localhost
   tags:
       - selfips
+
+- name: Run multiple commands on remote nodes
+  bigip_command:
+    commands:
+      - show sys version
+      - list ltm virtual
+    server: "{{ inventory_hostname }}"
+    user: "{{ username }}"
+    password: "{{ password }}"
+    validate_certs: "no"
+  delegate_to: localhost
+  tags: 
+      - commands
+
+- name: Save running configuration of the BIG-IP
+  bigip_config:
+    save: yes
+    server: "{{ inventory_hostname }}"
+    user: "{{ username }}"
+    password: "{{ password }}"
+    validate_certs: "no"
+  delegate_to: localhost
+
+...
