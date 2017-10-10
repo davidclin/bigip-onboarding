@@ -7,6 +7,8 @@
      ntp_servers: "{{ ntp_servers }}"
      validate_certs: False
   delegate_to: localhost
+  tags: 
+      - ntp
 
 - name: Configure BIG-IP hostname
   bigip_hostname:
@@ -16,8 +18,10 @@
      validate_certs: False
      hostname: "{{ hostname }}"
   delegate_to: localhost
+  tags:
+      - hostname
 
-- name: Manage SSHD setting on BIG-IP
+- name: Manage SSHD banner setting on BIG-IP
   bigip_device_sshd:
      server: "{{ inventory_hostname }}"
      user: "{{ username }}"
@@ -26,6 +30,8 @@
      banner_text: " {{ banner_text }}"
      validate_certs: False
   delegate_to: localhost
+  tags:
+      - banner
 
 - name: Manage BIG-IP DNS settings
   bigip_device_dns:
@@ -37,6 +43,8 @@
     ip_version: "{{ ip_version }}"
     validate_certs: False
   delegate_to: localhost
+  tags:
+      - dns
 
 - name: Configure VLANs on the BIG-IP
   bigip_vlan:
@@ -49,6 +57,8 @@
     tagged_interface: "{{ item.interface }}"
   with_items: "{{ vlan_information }}"
   delegate_to: localhost
+  tags:
+      - vlans
 
 - name: Configure SELF-IPs on the BIG-IP
   bigip_selfip:
@@ -63,3 +73,5 @@
     allow_service: "{{item.allow_service}}"
   with_items: "{{ selfip_information }}"
   delegate_to: localhost
+  tags:
+      - selfips
