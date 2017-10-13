@@ -97,5 +97,6 @@
     password: "{{ password }}"
     validate_certs: "no"
   delegate_to: localhost
-
+  tags:
+      - save
 ...
