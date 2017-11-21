@@ -81,6 +81,7 @@
     commands:
       - show sys version
       - list ltm virtual
+#      - modify /sys syslog remote-servers add { mysyslog { host 1.2.3.4 remote-port 514}}
     server: "{{ inventory_hostname }}"
     user: "{{ username }}"
     password: "{{ password }}"
