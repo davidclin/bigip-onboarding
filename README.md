@@ -25,7 +25,6 @@ Ansible role to automate onboarding configuration on a BIG-IP. The role will con
 * Save running configuration (tags: save)
 
 ## Requirements
-* f5devcentral.bigip-onboarding Ansible Galaxy role ( https://galaxy.ansible.com/f5devcentral/bigip-onboarding/ )
 * Ansible 2.4
 * BIG-IP is licensed
 * Packages to be installed
